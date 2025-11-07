@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI SEO & Content Automator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.3.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0"
+  }
+}
+</script>
+<style>
+  :root, [data-theme="dark"] {
+    --bg-primary: #0A0A0A;
+    --bg-secondary: #18181B;
+    --accent-primary: #3b82f6; /* blue-500 */
+    --accent-secondary: #6366f1; /* indigo-500 */
+    --text-primary: #f8fafc; /* slate-50 */
+    --text-secondary: #a1a1aa; /* zinc-400 */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --chart-color-1: #3b82f6;
+    --chart-color-2: #818cf8;
+    --chart-color-3: #a78bfa;
+  }
+  [data-theme="light"] {
+    --bg-primary: #f1f5f9; /* slate-100 */
+    --bg-secondary: #ffffff;
+    --accent-primary: #2563eb; /* blue-600 */
+    --accent-secondary: #4f46e5; /* indigo-600 */
+    --text-primary: #1e293b; /* slate-800 */
+    --text-secondary: #64748b; /* slate-500 */
+    --border-color: rgba(0, 0, 0, 0.1);
+    --chart-color-1: #3b82f6;
+    --chart-color-2: #6366f1;
+    --chart-color-3: #8b5cf6;
+  }
+  [data-theme="synthwave"] {
+    --bg-primary: #1a0a2e;
+    --bg-secondary: #2c1d4a;
+    --accent-primary: #ff00ff;
+    --accent-secondary: #00ffff;
+    --text-primary: #f0f0f0;
+    --text-secondary: #a8a8c0;
+    --border-color: rgba(255, 0, 255, 0.3);
+    --chart-color-1: #ff00ff;
+    --chart-color-2: #00ffff;
+    --chart-color-3: #f97316;
+  }
+  [data-theme="forest"] {
+    --bg-primary: #1A2A20;
+    --bg-secondary: #2B4031;
+    --accent-primary: #4CAF50; /* A vibrant green */
+    --accent-secondary: #8BC34A; /* A lighter, earthy green */
+    --text-primary: #E8F5E9; /* Off-white, like birch bark */
+    --text-secondary: #A5D6A7; /* A soft, light green */
+    --border-color: rgba(165, 214, 167, 0.3);
+    --chart-color-1: #4CAF50;
+    --chart-color-2: #8BC34A;
+    --chart-color-3: #CDDC39;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+    background-size: 25px 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .glass-card {
+    background-color: var(--bg-secondary);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .btn-primary {
+    background-image: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+    box-shadow: 0 4px 15px 0 color-mix(in srgb, var(--accent-primary) 50%, transparent);
+  }
+  .btn-primary:hover {
+    background-image: linear-gradient(to right, var(--accent-secondary), var(--accent-primary));
+  }
+  .btn-secondary {
+    background-color: color-mix(in srgb, var(--text-primary) 5%, transparent);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+  }
+  .btn-secondary:hover {
+    background-color: color-mix(in srgb, var(--text-primary) 10%, transparent);
+  }
+  .form-input {
+    background-color: color-mix(in srgb, var(--text-primary) 3%, transparent);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+  }
+  .form-input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-primary) 50%, transparent);
+  }
+  .gradient-text {
+    background-image: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+</style>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
